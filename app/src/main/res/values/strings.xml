@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">quizApp</string>
+    <string name="main_question">What is the name of movie in this Picture!</string>
+    <string name="first_question">Lord Of Rings</string>
+    <string name="second_question">Star wars</string>
+    <string name="third_question">The Hobbit</string>
+    <string name="button">Next</string>
+    <string name="feedback">How Was The Quiz</string>
+    <string name="checkBox1">Excellent</string>
+    <string name="checkBox2">Good</string>
+    <string name="checkBox3">Not Bad</string>
+    <string name="checkBox4">Bad</string>
+    <string name="thank_you">THANK YOU FOR YOUR ANSWERS</string>
+
+</resources>
