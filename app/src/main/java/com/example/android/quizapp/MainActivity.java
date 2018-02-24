@@ -112,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (questionNo == 7) {
-            answer = editText.getText().toString();
-            if (answer.contains(questions.option[7][2])) {
+            answer = editText.getText().toString().toLowerCase();
+            if (answer.contains(questions.option[7][2].toLowerCase())) {
                 Toast.makeText(this, "True", Toast.LENGTH_SHORT).show();
                 questionNo++;
                 correctNo++;

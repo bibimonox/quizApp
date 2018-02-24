@@ -49,14 +49,14 @@
             android:text="@string/main_question"
             android:textSize="30sp"
             android:textStyle="bold" />
+
         <EditText
+            android:id="@+id/textAnswer"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/question1"
             android:layout_marginLeft="20sp"
-            android:visibility="gone"
-            android:id="@+id/textAnswer"
-            />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/feedback_question"
