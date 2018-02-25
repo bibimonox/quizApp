@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "False.Just Try Again!", Toast.LENGTH_SHORT).show();
                 wrongNumber++;
+                questionNo++;
             }
         }
         else if (questionNo == 8) {
@@ -138,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (!(questions.answers[questionNo] == selectedButtonId)) {
                     Toast.makeText(this, "False.Just Try Again!", Toast.LENGTH_SHORT).show();
                     wrongNumber++;
+                    questionNo++;
                 }
 
             }
