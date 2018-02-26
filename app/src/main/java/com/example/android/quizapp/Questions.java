@@ -1,4 +1,4 @@
-package com.example.yildi.quizApp;
+package com.example.android.quizapp;
 
 public class Questions {
 

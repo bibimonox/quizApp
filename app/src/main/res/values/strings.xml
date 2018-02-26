@@ -6,10 +6,54 @@
     <string name="third_question">The Hobbit</string>
     <string name="button">Next</string>
     <string name="feedback">How Was The Quiz</string>
-    <string name="checkBox1">Excellent</string>
-    <string name="checkBox2">Good</string>
-    <string name="checkBox3">Not Bad</string>
-    <string name="checkBox4">Bad</string>
+
     <string name="thank_you">THANK YOU FOR YOUR ANSWERS</string>
+    <string name="total_correct">Total Correct</string>
+    <string name="total_wrong">Total Wrong</string>
+    <string name="final_message">Good Work. You Finished All Quiz Your Total Corrects</string>
+    <string name="true_option">True</string>
+    <string name="false_option">False.Just Try Again!</string>
+    <string name="empty">Pls Select One of these</string>
+    <string name="final_question">Which of these character are play in Blade Runner</string>
+    <string name="question1_option1">Lord of Rings</string>
+    <string name="question1_option2">Star Wars</string>
+    <string name="question1_option3">The Hobbit</string>
+
+    <string name="question2_option1">The Matrix</string>
+    <string name="question2_option2">Star Wars</string>
+    <string name="question2_option3">Back To The Future</string>
+
+    <string name="question3_option1">The Matrix</string>
+    <string name="question3_option2">E.T</string>
+    <string name="question3_option3">Back to the Future</string>
+
+    <string name="question4_option1">Harry Potter</string>
+    <string name="question4_option2">Now You See Me</string>
+    <string name="question4_option3">The Sorcerers Apprentice</string>
+
+    <string name="question5_option1">GhostBusters</string>
+    <string name="question5_option2">John Wick</string>
+    <string name="question5_option3">The Matrix</string>
+
+    <string name="question6_option1">Interstellar</string>
+    <string name="question6_option2">Star Wars</string>
+    <string name="question6_option3">The Martian</string>
+
+    <string name="question7_option1">Surrogates</string>
+    <string name="question7_option2">Mad Max</string>
+    <string name="question7_option3">Sin City</string>
+
+    <string name="question8_option1">GoodFellas</string>
+    <string name="question8_option2">Scar Face</string>
+    <string name="question8_option3">The GodFather</string>
+
+    <string name="question9_option1">Sean Young</string>
+    <string name="question9_option2">Bruce Wills</string>
+    <string name="question9_option3">Harrison Ford</string>
+    <string name="question9_option4">johnny Deep</string>
+    <string name="hint">use lowercase</string>
+
+
+
 
 </resources>

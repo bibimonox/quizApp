@@ -13,8 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.yildi.quizApp.Questions;
 import com.example.yildi.quizApp.R;
 
 import java.util.ArrayList;
@@ -28,16 +26,15 @@ public class MainActivity extends AppCompatActivity {
     Questions questions;
     ImageView imageView;
     CheckBox[] checkBoxes;
-    TextView textView, questionTextView, feedbackTextView;
+    TextView textView, questionTextView;
     RadioButton selectedButton;
     LinearLayout linearLayout;
-    String message, answer;
+    String answer;
     int questionNo = 0;
     int correctNo = 0;
     int selectedButtonId;
     EditText editText;
     int wrongNumber = 0;
-    boolean go = false;
     RelativeLayout relativeLayout;
 
 
@@ -45,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        checkBoxes = new CheckBox[4];
+        checkBoxes = new CheckBox[3];
         trueOption = new ArrayList();
         radioButtons = new RadioButton[3];
         questions = new Questions();
@@ -55,15 +52,12 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.buttonOne);
         relativeLayout = findViewById(R.id.relative);
         textView = findViewById(R.id.finalText);
-        feedbackTextView = findViewById(R.id.feedback_question);
         linearLayout = findViewById(R.id.checkboxLayout);
         editText = findViewById(R.id.textAnswer);
-
 
         checkBoxes[0] = findViewById(R.id.checkbox1);
         checkBoxes[1] = findViewById(R.id.checkbox2);
         checkBoxes[2] = findViewById(R.id.checkbox3);
-        checkBoxes[3] = findViewById(R.id.checkbox4);
 
 
         radioGroup = findViewById(R.id.radioGroup1);
@@ -90,20 +84,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void controller(View v) {
-        boolean checked = ((RadioButton) v).isChecked();
         selectedButtonId = radioGroup.getCheckedRadioButtonId();
         selectedButton = findViewById(selectedButtonId);
-//        switch (v.getId()) {
-//            case R.id.radioButton1:
-//                break;
-//
-//            case R.id.radioButton2:
-//                break;
-//
-//            case R.id.radioButton3:
-//                break;
-//
-//        }
     }
 
     public void TrueFalse(View v) {
@@ -114,38 +96,42 @@ public class MainActivity extends AppCompatActivity {
         if (questionNo == 7) {
             answer = editText.getText().toString().toLowerCase();
             if (answer.contains(questions.option[7][2].toLowerCase())) {
-                Toast.makeText(this, "True", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.true_option), Toast.LENGTH_SHORT).show();
                 questionNo++;
                 correctNo++;
             } else {
-                Toast.makeText(this, "False.Just Try Again!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.false_option, Toast.LENGTH_SHORT).show();
                 wrongNumber++;
                 questionNo++;
             }
         }
         else if (questionNo == 8) {
-            if (checkBoxes[0].isChecked() || checkBoxes[1].isChecked() || checkBoxes[2].isChecked() || checkBoxes[3].isChecked()) {
+            if (checkBoxes[0].isChecked() && checkBoxes[2].isChecked()) {
                 questionNo++;
+                Toast.makeText(this,getText(R.string.true_option)+" "+getText(R.string.final_message) +" "+ correctNo +" "+getText(R.string.total_wrong) +" "+ wrongNumber, Toast.LENGTH_LONG).show();
             }
+            else {
+                Toast.makeText(this,getText(R.string.false_option)+" "+getText(R.string.final_message) +" "+ correctNo + " "+getText(R.string.total_wrong) +" "+ wrongNumber, Toast.LENGTH_LONG).show();
+                wrongNumber++;
+                questionNo++;}
         }
         else {
             if (questionNo != questions.questionNo - 1) {
                 if (selectedButtonId == 0) {
-                    Toast.makeText(this, "Pls Select One of these ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,getText(R.string.empty), Toast.LENGTH_SHORT).show();
                 } else if (questions.answers[questionNo] == selectedButtonId) {
-                    Toast.makeText(this, "True.Go on!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getText(R.string.true_option), Toast.LENGTH_SHORT).show();
                     correctNo++;
                     questionNo++;
                 } else if (!(questions.answers[questionNo] == selectedButtonId)) {
-                    Toast.makeText(this, "False.Just Try Again!", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(this,getText(R.string.false_option), Toast.LENGTH_SHORT).show();
                     wrongNumber++;
                     questionNo++;
                 }
 
             }
         }
-
-
         switch (questionNo) {
             case 1:
 
@@ -172,20 +158,13 @@ public class MainActivity extends AppCompatActivity {
                 editText.setVisibility(View.VISIBLE);
                 break;
             case 8:
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.blade_runner));
                 editText.setVisibility(View.GONE);
-                questionTextView.setVisibility(View.INVISIBLE);
-                imageView.setVisibility(View.INVISIBLE);
+                questionTextView.setText(R.string.final_question);
                 radioGroup.setVisibility(View.INVISIBLE);
                 linearLayout.setVisibility(View.VISIBLE);
-                feedbackTextView.setVisibility(View.VISIBLE);
-                break;
-
-            case 9:
-                textView.setText("Good Work. You Finished All Quiz Your Total Corrects " + correctNo + " Your Total Wrong " + wrongNumber);
                 break;
         }
-
-
         for (int i = 0; i < radioButtons.length; i++) {
             radioButtons[i].setText(questions.option[questionNo][i]);
         }
